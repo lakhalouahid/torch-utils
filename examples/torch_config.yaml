@@ -1,0 +1,19 @@
+filename: "filename.py"
+cfgname: "configuration.yaml"
+rootdir: "rootdir"
+workers: 4
+files2move: ["setup.py"]
+dirs2move: ["src"]
+repeat: 1
+args:
+  lr: [1e-3, 1e-4]
+  batch: [128, 256]
+  epoch: [100, 1000]
+  move: [true, false]
+  abcd: 120
+  abcde: 149.95
+  abcdef: "acd"
+  abcdef: True
+  tensorboard:
+    logdir: "runs"
+
