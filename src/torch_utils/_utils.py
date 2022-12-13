@@ -59,12 +59,11 @@ def makenumberedsubdirs(rootdir: str, t: int, f: int = 1, override_names: bool =
 
 def dictList2ListDict(dictlist: dict):
     list_dict, dictlist_idxs = [], {k:0 for k, v in dictlist.items() if type(v) == list}
-    done = (len(dictlist_idxs) == 0)
+    done = False
     while not done:
         d = {}
         for k, v in dictlist.items():
-            if not k in filter:
-                d[k] = v if type(v) != list else v[dictlist_idxs[k]]
+            d[k] = v if type(v) != list else v[dictlist_idxs[k]]
 
         for idx ,k in enumerate(dictlist_idxs.keys()):
             if idx != (len(dictlist_idxs) - 1):
@@ -79,8 +78,9 @@ def dictList2ListDict(dictlist: dict):
                 else:
                     dictlist_idxs[k] += 1
                 break
-
         list_dict.append(d)
+        if len(dictlist_idxs) == 0:
+            break
     return list_dict
 
 
